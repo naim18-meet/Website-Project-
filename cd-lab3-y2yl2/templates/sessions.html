@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sessions</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/sessions_style.css')}}">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #66b9bf">
+<ul>
+  <li class="li"><a href="{{url_for('home')}}">Home</a></li>
+  <li class="li"><a href="{{url_for('post')}}">Post</a></li>
+  <li class="li"><a class="active" href="{{url_for('sessions')}}">Updates</a></li>
+  <li class="li"><a href="{{url_for('conferences')}}">Conferences</a></li>
+  <li class="li"><a href="{{url_for('members')}}">Members</a></li>
+  <li style="float: right" ><a id="logout_button" href="{{url_for('login_signup')}}">Logout</a></li>
+</ul>
+
+{% for new_post in posts[::-1] %}
+
+<br>
+<hr style="border-color: #000080">
+<br>
+
+  <div class="border">
+    <h1 style="font-family: Times; font-size: 30px; color: #f15025; text-align: center;">{{ new_post.title }}</h1>
+    <p style="font-family: Times; font-size: 24px">{{ new_post.text }}</p>
+  </div>
+
+{% endfor %}
+
+</body>
+</html>
